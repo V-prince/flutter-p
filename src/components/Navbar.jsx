@@ -45,7 +45,7 @@ const Navbar = () => {
             Contact
           </a>
           <a
-            href="#"
+            href="https://github.com/pratikbhatti99"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-on-surface-variant hover:text-primary transition-all border border-white/10"
@@ -55,7 +55,7 @@ const Navbar = () => {
             </svg>
           </a>
           <a
-            href="#"
+            href="linkedin.com/in/pratik-bhatti-5407a216b"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-on-surface-variant hover:text-primary transition-all border border-white/10"

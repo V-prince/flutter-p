@@ -39,14 +39,14 @@ const Projects = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                    <span className="material-symbols-outlined">bolt</span>
+                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
+                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
                   </div>
                   <p className="text-on-surface text-body-md">Sub-200ms transaction settlement time</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                    <span className="material-symbols-outlined">security</span>
+                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
+                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
                   </div>
                   <p className="text-on-surface text-body-md">Biometric-first authentication flow</p>
                 </div>
@@ -92,14 +92,14 @@ const Projects = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">sensors</span>
+                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
+                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
                   </div>
                   <p className="text-on-surface text-body-md">Real-time MQTT state synchronization</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">palette</span>
+                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
+                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
                   </div>
                   <p className="text-on-surface text-body-md">Custom Skia-based animation engine</p>
                 </div>

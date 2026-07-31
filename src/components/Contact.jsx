@@ -21,113 +21,160 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-section-gap-mobile md:py-section-gap-desktop transition-all duration-1000 opacity-100 translate-y-0" id="contact">
-      <div className="glass-card rounded-[40px] p-12 md:p-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] -mr-48 -mt-48"></div>
+    <section
+      id="contact"
+      className="py-16 md:py-24 transition-all duration-1000"
+    >
+      <div className="glass-card relative overflow-hidden rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-12 lg:p-20">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+        {/* Background Blur */}
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-primary/10 blur-[100px] lg:blur-[120px] -mr-20 sm:-mr-36 lg:-mr-48 -mt-20 sm:-mt-36 lg:-mt-48"></div>
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+          {/* Left Side */}
           <div className="space-y-8">
-            <h2 className="font-display text-[56px] text-white leading-tight">
-              Let's build something <span className="text-gradient">extraordinary</span>.
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-white">
+              Let's build something{" "}
+              <span className="text-gradient">extraordinary</span>.
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">
-              I'm currently open to senior-level roles and high-impact freelance projects. Whether it's a new product or scaling an existing one, let's talk.
+
+            <p className="text-sm sm:text-base md:text-lg leading-7 text-on-surface-variant">
+              I'm currently open to senior-level roles and high-impact freelance
+              projects. Whether it's a new product or scaling an existing one,
+              let's talk.
             </p>
 
             <div className="space-y-4">
+
+              {/* Email */}
               <a
-                className="flex items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
                 href="#"
+                className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined"><Mail /></span>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition">
+                  <Mail size={22} />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">Email Me</span>
-                  <span className="font-bold">hello@flutterexpert.dev</span>
+
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-wider text-on-surface-variant">
+                    Email Me
+                  </p>
+
+                  <p className="font-semibold break-all">
+                    pratikbhatti99@gmail.com
+                  </p>
                 </div>
               </a>
 
+              {/* LinkedIn */}
               <a
-                className="flex items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-secondary hover:border-secondary/50 transition-all group"
-                href="#"
+                href="linkedin.com/in/pratik-bhatti-5407a216b"
+                className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-secondary hover:border-secondary/50 transition-all group"
               >
-                <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined"><Link /></span>
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0 group-hover:scale-110 transition">
+                  <Link size={22} />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">Connect on LinkedIn</span>
-                  <span className="font-bold">linkedin.com/in/flutterexpert</span>
+
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-wider text-on-surface-variant">
+                    Connect on LinkedIn
+                  </p>
+
+                  <p className="font-semibold break-all">
+                    linkedin.com/in/pratik-bhatti-5407a216b
+                  </p>
                 </div>
               </a>
 
+              {/* GitHub */}
               <a
-                className="flex items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
-                href="#"
+                href="https://github.com/pratikbhatti99"
+                className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined"><Code /></span>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition">
+                  <Code size={22} />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">View GitHub Profile</span>
-                  <span className="font-bold">github.com/flutterexpert</span>
+
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-wider text-on-surface-variant">
+                    View GitHub Profile
+                  </p>
+
+                  <p className="font-semibold break-all">
+                    github.com/pratikbhatti99
+                  </p>
                 </div>
               </a>
+
             </div>
           </div>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Right Side */}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
               <div className="space-y-2">
-                <label className="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">
+                <label className="text-xs uppercase tracking-wider text-on-surface-variant">
                   Name
                 </label>
+
                 <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border-b border-white/10 p-4 focus:border-primary focus:ring-0 transition-all text-white outline-none"
                   placeholder="John Doe"
-                  type="text"
+                  className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 outline-none focus:border-primary transition"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">
+                <label className="text-xs uppercase tracking-wider text-on-surface-variant">
                   Email
                 </label>
+
                 <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border-b border-white/10 p-4 focus:border-primary focus:ring-0 transition-all text-white outline-none"
                   placeholder="john@example.com"
-                  type="email"
+                  className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 outline-none focus:border-primary transition"
                 />
               </div>
+
             </div>
 
             <div className="space-y-2">
-              <label className="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-wider">
+              <label className="text-xs uppercase tracking-wider text-on-surface-variant">
                 Message
               </label>
+
               <textarea
+                rows={5}
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full bg-white/5 border-b border-white/10 p-4 focus:border-primary focus:ring-0 transition-all text-white resize-none outline-none"
                 placeholder="Tell me about your project..."
-                rows="4"
-              ></textarea>
+                className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 resize-none outline-none focus:border-primary transition"
+              />
             </div>
 
             <button
               type="submit"
-              className="btn-gradient w-full py-4 rounded-xl font-bold text-white flex items-center justify-center gap-2"
+              className="btn-gradient w-full rounded-xl py-4 text-white font-semibold flex items-center justify-center gap-2"
             >
-              Send Message <span className="material-symbols-outlined">send</span>
+              Send Message
             </button>
+
           </form>
+
         </div>
       </div>
     </section>
