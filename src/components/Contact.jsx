@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Code, Link, Mail } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const Contact = () => {
     <section className="py-section-gap-mobile md:py-section-gap-desktop transition-all duration-1000 opacity-100 translate-y-0" id="contact">
       <div className="glass-card rounded-[40px] p-12 md:p-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] -mr-48 -mt-48"></div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
           <div className="space-y-8">
             <h2 className="font-display text-[56px] text-white leading-tight">
@@ -39,7 +40,7 @@ const Contact = () => {
                 href="#"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">mail</span>
+                  <span className="material-symbols-outlined"><Mail /></span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">Email Me</span>
@@ -52,7 +53,7 @@ const Contact = () => {
                 href="#"
               >
                 <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">link</span>
+                  <span className="material-symbols-outlined"><Link /></span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">Connect on LinkedIn</span>
@@ -65,7 +66,7 @@ const Contact = () => {
                 href="#"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">code</span>
+                  <span className="material-symbols-outlined"><Code /></span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-label-caps font-label-caps text-on-surface-variant uppercase">View GitHub Profile</span>

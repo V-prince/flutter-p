@@ -21,7 +21,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="flex gap-12 pt-4">
+        <div className="flex items-center justify-center gap-12 pt-4">
           <div>
             <p className="text-4xl font-bold text-white">4+</p>
             <p className="font-label-caps text-label-caps text-on-surface-variant">Years Exp.</p>
