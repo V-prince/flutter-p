@@ -40,19 +40,22 @@ const Hero = () => {
 
         <div className="flex justify-center gap-6 mt-8 mb-10">
           <a
-            href="#"
+            href="https://github.com/pratikbhatti99"
+            target='_blank'
             className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-secondary hover:text-secondary hover:shadow-[0_0_15px_rgba(68,221,193,0.3)] transition-all duration-300"
           >
             <span className="material-symbols-outlined"><Code /></span>
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/pratik-bhatti-5407a216b/"
+            target='_blank'
             className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-secondary hover:text-secondary hover:shadow-[0_0_15px_rgba(68,221,193,0.3)] transition-all duration-300"
           >
             <span className="material-symbols-outlined"><Link /></span>
           </a>
           <a
-            href="#"
+            href="mailto:pratikbhatti99@gmail.com"
+            target='_blank'
             className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-secondary hover:text-secondary hover:shadow-[0_0_15px_rgba(68,221,193,0.3)] transition-all duration-300"
           >
             <span className="material-symbols-outlined"><Mail /></span>

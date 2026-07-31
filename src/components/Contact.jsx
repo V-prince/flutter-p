@@ -50,7 +50,8 @@ const Contact = () => {
 
               {/* Email */}
               <a
-                href="#"
+                href="mailto:pratikbhatti99@gmail.com"
+                target='_blank'
                 className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition">
@@ -70,7 +71,8 @@ const Contact = () => {
 
               {/* LinkedIn */}
               <a
-                href="linkedin.com/in/pratik-bhatti-5407a216b"
+                href="https://www.linkedin.com/in/pratik-bhatti-5407a216b/"
+                target='_blank'
                 className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-secondary hover:border-secondary/50 transition-all group"
               >
                 <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0 group-hover:scale-110 transition">
@@ -91,6 +93,7 @@ const Contact = () => {
               {/* GitHub */}
               <a
                 href="https://github.com/pratikbhatti99"
+                target='_blank'
                 className="flex items-start sm:items-center gap-4 p-4 glass-card rounded-xl text-white hover:text-primary hover:border-primary/50 transition-all group"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition">
