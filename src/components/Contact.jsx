@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Code, Link, Mail } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-hot-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,8 @@ const Contact = () => {
     message: ''
   });
 
+  const [loading, SetLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -15,9 +19,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submit logic
+    try {
+
+      if (!formData.name || !formData.email || !formData.message) return;
+
+
+      SetLoading(true);
+      await emailjs.send(
+        "service_v1r6jgi",
+        "template_2bzsech",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        's_ju_136k7wXHzHtf'
+      )
+
+      toast.success('Message sent successfully!');
+
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
+      SetLoading(false);
+    }
   };
 
   return (
@@ -171,9 +204,10 @@ const Contact = () => {
 
             <button
               type="submit"
+              disabled={loading}
               className="btn-gradient w-full rounded-xl py-4 text-white font-semibold flex items-center justify-center gap-2"
             >
-              Send Message
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
 
           </form>
