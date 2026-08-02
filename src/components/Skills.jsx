@@ -22,10 +22,10 @@ const Skills = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {expertise.map((expertise) => (
-          <div key={expertise.id} className="glass-card p-10 rounded-2xl hover:border-primary/50 transition-colors">
-            <h3 className="font-headline-md text-headline-md text-white mb-4">{expertise.title}</h3>
-            <span className="material-symbols-outlined text-secondary text-4xl mb-6">{expertise.icon}</span>
-            <div className="flex flex-wrap gap-2">
+          <div key={expertise.id} className="glass-card p-10 rounded-2xl hover:border-primary/50 transition-colors ">
+            <h3 className="font-headline-md text-headline-md text-white">{expertise.title}</h3>
+            <span className="material-symbols-outlined text-secondary text-4xl ">{expertise.icon}</span>
+            <div className="flex flex-wrap gap-2 mt-5">
               {expertise?.skills?.map((skill) => (
                 <span key={skill} className="px-3 py-1 bg-white/5 rounded-lg font-label-caps text-label-caps text-on-surface-variant">{skill}</span>
               ))}

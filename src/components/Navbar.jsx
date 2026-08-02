@@ -1,3 +1,4 @@
+import { Menu, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
@@ -74,7 +75,7 @@ const Navbar = () => {
           className="md:hidden text-primary focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <span className="material-symbols-outlined">{isMobileMenuOpen ? 'close' : 'menu'}</span>
+          <span className="material-symbols-outlined">{isMobileMenuOpen ? <X /> : <Menu />}</span>
         </button>
       </div>
 

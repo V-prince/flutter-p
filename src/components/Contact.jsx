@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, Link, Mail } from 'lucide-react';
+import { Code, Ellipsis, Link, LoaderCircle, Mail } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-hot-toast';
 
@@ -24,7 +24,6 @@ const Contact = () => {
     try {
 
       if (!formData.name || !formData.email || !formData.message) return;
-
 
       SetLoading(true);
       await emailjs.send(
@@ -69,14 +68,12 @@ const Contact = () => {
           <div className="space-y-8">
 
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-white">
-              Let's build something{" "}
-              <span className="text-gradient">extraordinary</span>.
+              Let's build scalable {" "}
+              <span className="text-gradient">digital solutions</span>.
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg leading-7 text-on-surface-variant">
-              I'm currently open to senior-level roles and high-impact freelance
-              projects. Whether it's a new product or scaling an existing one,
-              let's talk.
+              I bring years of hands-on experience in cross-platform engineering to help businesses launch high-performance products. Got a project in mind? Let's connect.
             </p>
 
             <div className="space-y-4">
@@ -165,6 +162,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                   placeholder="John Doe"
                   className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 outline-none focus:border-primary transition"
                 />
@@ -180,6 +178,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                   placeholder="john@example.com"
                   className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 outline-none focus:border-primary transition"
                 />
@@ -197,6 +196,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                required
                 placeholder="Tell me about your project..."
                 className="w-full bg-white/5 border-b border-white/10 p-3 sm:p-4 text-white placeholder:text-zinc-500 resize-none outline-none focus:border-primary transition"
               />
@@ -207,7 +207,7 @@ const Contact = () => {
               disabled={loading}
               className="btn-gradient w-full rounded-xl py-4 text-white font-semibold flex items-center justify-center gap-2"
             >
-              {loading ? 'Sending...' : 'Send Message'}
+              {loading ? <LoaderCircle className="w-6 h-6 animate-spin text-white" /> : 'Send Message'}
             </button>
 
           </form>
