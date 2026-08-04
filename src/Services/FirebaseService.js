@@ -37,3 +37,13 @@ export const fetchProjects = async () => {
 
   return data;
 }
+
+export const fetchLinks = async () => {
+  const querySnap = await getDocs(collection(db, "resume"))
+  const data = querySnap.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data()
+  }))
+
+  return data;
+}

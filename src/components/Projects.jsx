@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { useState } from 'react';
 import { fetchProjects } from '../Services/FirebaseService';
 
@@ -12,6 +13,7 @@ const Projects = () => {
 
 
   const [projects, SetProject] = useState([]);
+  
 
   const projectDataFetch = async () => {
     const data = await fetchProjects()
@@ -21,8 +23,6 @@ const Projects = () => {
   useEffect(() => {
     projectDataFetch()
   }, [])
-
-
 
   return (
     <section className="py-section-gap-mobile md:py-section-gap-desktop transition-all duration-1000 opacity-100 translate-y-0" id="projects">
@@ -38,6 +38,10 @@ const Projects = () => {
 
       <div className="w-full  px-4 sm:px-6 lg:px-10 py-10">
         <Swiper
+          pagination={{
+            type: 'fraction',
+          }}
+          modules={[Pagination]}
           spaceBetween={30}
           slidesPerView={1}
           className="w-full"
@@ -87,26 +91,25 @@ const Projects = () => {
 
                     </div>
 
-
-                    <div className="bg-zinc-900 rounded-r-3xl p-6 sm:p-10">
+                    <div className="bg-zinc-900 rounded-3xl md:rounded-none lg:rounded-r-3xl p-6 sm:p-10">
                       <Swiper
                         modules={[Navigation]}
                         navigation
                         slidesPerView={1}
                         spaceBetween={10}
-                        className="h-[500px]"
+                        className="h-[350px] sm:h-[350px] md:h-[500px]"
                         loop={true}
 
                       >
                         {project.appImages.map((img, index) => (
                           <SwiperSlide
                             key={index}
-                            className="flex justify-center items-center h-[500px]"
+                            className="flex items-center justify-center h-full rounded-2xl"
                           >
                             <img
                               src={img}
                               alt={`Project ${index + 1}`}
-                              className="w-40 sm:w-48 md:w-56 lg:w-64 object-contain rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105"
+                              className="h-[280px] sm:h-[300px] md:h-[450px] w-auto object-contain rounded-2xl shadow-xl transition duration-300 hover:scale-105"
                             />
                           </SwiperSlide>
                         ))}

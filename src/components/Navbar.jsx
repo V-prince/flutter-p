@@ -1,9 +1,19 @@
 import { Menu, X } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
+import { fetchLinks } from '../Services/FirebaseService';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [resume, SetResume] = useState(null)
+
+  const FetchResume = async () => {
+    const data = await fetchLinks();
+    SetResume(data[0])
+  }
+
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,11 +23,12 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
+    FetchResume();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  
   return (
     <nav className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-surface/90' : 'bg-surface/70'} backdrop-blur-xl border-b border-white/10 h-20`}>
       <div className="flex justify-between items-center h-full px-margin-mobile md:px-gutter max-w-container-max-width mx-auto">
@@ -118,9 +129,9 @@ const Navbar = () => {
             Contact
           </a>
           <div className="flex gap-4 pt-2 border-t border-white/10 items-center">
-            <button className="btn-gradient px-6 py-2 rounded-lg font-bold text-white active:scale-95 transition-transform w-full">
+            <a href={resume?.resumeLink} target='_blank' className="btn-gradient px-6 py-2 rounded-lg font-bold text-white active:scale-95 transition-transform w-full">
               Resume
-            </button>
+            </a>
           </div>
         </div>
       )}

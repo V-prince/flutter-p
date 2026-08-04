@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ShaderBackground from './ShaderBackground';
 import { ChevronDown, Code, Link, Mail } from 'lucide-react';
+import { fetchLinks } from '../Services/FirebaseService';
 
 const Hero = () => {
+
+  const [resume, SetResume] = useState(null)
+
+  const FetchResume = async () => {
+    const data = await fetchLinks();
+    SetResume(data[0])
+  }
+
+  const resumeDownloadLink = resume?.resumeLink
+    ? resume.resumeLink.replace("/edit?usp=sharing", "/export?format=pdf")
+    : "";
+
+  useEffect(() => {
+    FetchResume()
+  }, [])
+
+
+
+
   return (
     <header className="relative min-h-screen flex items-center justify-center  overflow-hidden px-5 sm:px-8 lg:px-10 pt-28 md:pt-24">
       <ShaderBackground />
@@ -32,7 +52,8 @@ const Hero = () => {
           </a>
           <a
             className="px-10 py-4 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 w-full md:w-auto text-center transition-all"
-            href="#"
+            href={resumeDownloadLink}
+            download
           >
             Download Resume
           </a>
