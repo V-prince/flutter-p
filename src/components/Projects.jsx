@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useState } from 'react';
+import { fetchProjects } from '../Services/FirebaseService';
+
+
 
 const Projects = () => {
+
+
+  const [projects, SetProject] = useState([]);
+
+  const projectDataFetch = async () => {
+    const data = await fetchProjects()
+    SetProject(data)
+  }
+
+  useEffect(() => {
+    projectDataFetch()
+  }, [])
+
+
+
   return (
     <section className="py-section-gap-mobile md:py-section-gap-desktop transition-all duration-1000 opacity-100 translate-y-0" id="projects">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -10,106 +33,92 @@ const Projects = () => {
             Case studies of apps that solve real problems with elegant engineering solutions.
           </p>
         </div>
-        <button className="text-secondary font-bold flex items-center gap-2 group">
-          View All Projects
-          <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-            arrow_forward
-          </span>
-        </button>
+
       </div>
 
-      <div className="grid grid-cols-1 gap-12">
-        
-        <div className="glass-card rounded-3xl overflow-hidden group">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-12 space-y-8">
-              <div className="flex gap-2">
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-label-caps text-label-caps">
-                  FINTECH
-                </span>
-                <span className="px-3 py-1 bg-white/5 text-on-surface-variant rounded-full font-label-caps text-label-caps">
-                  CASE STUDY
-                </span>
-              </div>
-              <h3 className="font-display text-[40px] text-white leading-tight">
-                PayPulse: Revolutionizing Peer-to-Peer Payments
-              </h3>
-              <p className="text-on-surface-variant font-body-lg text-body-lg">
-                The challenge was to create a seamless, ultra-fast payment experience that handles high concurrency and provides real-time fraud detection alerts.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
-                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
-                  </div>
-                  <p className="text-on-surface text-body-md">Sub-200ms transaction settlement time</p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
-                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
-                  </div>
-                  <p className="text-on-surface text-body-md">Biometric-first authentication flow</p>
-                </div>
-              </div>
-              <button className="btn-gradient px-8 py-3 rounded-xl font-bold text-white mt-4">
-                Full Case Study
-              </button>
-            </div>
-            <div className="bg-surface-container-high relative overflow-hidden flex items-center justify-center p-12">
-              <img
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
-                alt="A sleek, high-fidelity UI mockup of a financial mobile app displayed on two floating iPhones."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMa6jrEgZIn7OL1Nf2TiR8CwxjLv9e9oAljNkfixs0TgZQE7AxI7SDIsm-Gu0tWVxHr4qMoXPBbJ3o6qJV4VlSYRgdGAFbyME3bzMj5j3F3-YZS1g-cwKa7AunqvzT1K7prKzcFAZhjsNpv5bbrPgQXZsXylgU4kMQobUbAC3CtzWkztx4Mt850j0gXNpWFAUL44MCy2GFoc6C4KqnNK4WBRVe9aT09lU-ee43v3h4X-cssBveUhR3mQ"
-              />
-            </div>
-          </div>
-        </div>
+      <div className="w-full  px-4 sm:px-6 lg:px-10 py-10">
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          className="w-full"
+        >
+          {
+            projects.map((project) => (
+              <SwiperSlide>
 
-        
-        <div className="glass-card rounded-3xl overflow-hidden group">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="order-2 md:order-1 bg-surface-container-high relative overflow-hidden flex items-center justify-center p-12">
-              <img
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
-                alt="A premium mobile application interface for a luxury home automation system."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLCTJI13Vg3uw4oP2sr8ndvK60StcbryT8QP0PddZLd01C1bbyQqT6Yxo75iwdR9bGN41ISi3_k5zM5kyote3XOclD1A6m57_WR_BfVjhaYTtnPBBd-cs-cqHZ1vRIPMu9Lj696jYnZev1GLdYZwuNsrAKfGM3nGqCtmk0Ox1vKwU417kjk_41HIxrqr-Y0Q0ywDodGg6elr72T2K87ff4DOCPhRs8dy_HgbVVTQ3LvVyd-NQjVQAP_Q"
-              />
-            </div>
-            <div className="order-1 md:order-2 p-12 space-y-8">
-              <div className="flex gap-2">
-                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full font-label-caps text-label-caps">
-                  IOT
-                </span>
-                <span className="px-3 py-1 bg-white/5 text-on-surface-variant rounded-full font-label-caps text-label-caps">
-                  PRODUCTION
-                </span>
-              </div>
-              <h3 className="font-display text-[40px] text-white leading-tight">
-                Lumina SmartHome Dashboard
-              </h3>
-              <p className="text-on-surface-variant font-body-lg text-body-lg">
-                Designed and developed a centralized control hub for high-end residential automation, focusing on zero-latency hardware communication via MQTT.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
-                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
+                <div key={project.id} className="glass-card rounded-3xl  group">
+                  <div className="grid grid-cols-1 lg:grid-cols-2">
+
+
+                    <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">
+                          {project.appCategory}
+                        </span>
+                      </div>
+
+                      <h3 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+                        {project.appName}
+                      </h3>
+
+                      <p className="mt-6 text-gray-400 text-base lg:text-lg leading-7">
+                        {project.appDescription}
+                      </p>
+
+
+                      <div className="flex flex-wrap gap-2 mt-5">
+                        {project?.technologies?.map((tech) => (
+                          <span key={tech} className="px-3 py-1 bg-white/5 rounded-lg font-label-caps text-label-caps text-on-surface-variant">{tech}</span>
+                        ))}
+                      </div>
+
+                      <div className='flex gap-x-5'>
+
+                        <button className="mt-8 w-fit px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition">
+                          <a href={project.androidAppLink} target='_blank'> Android</a>
+                        </button>
+
+                        {project.iosAppLink && <button className="mt-8 w-fit px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition">
+                          <a href={project.iosAppLink} target='_blank'>ios</a>
+                        </button>}
+
+
+                      </div>
+
+                    </div>
+
+
+                    <div className="bg-zinc-900 rounded-r-3xl p-6 sm:p-10">
+                      <Swiper
+                        modules={[Navigation]}
+                        navigation
+                        slidesPerView={1}
+                        spaceBetween={10}
+                        className="h-[500px]"
+                        loop={true}
+
+                      >
+                        {project.appImages.map((img, index) => (
+                          <SwiperSlide
+                            key={index}
+                            className="flex justify-center items-center h-[500px]"
+                          >
+                            <img
+                              src={img}
+                              alt={`Project ${index + 1}`}
+                              className="w-40 sm:w-48 md:w-56 lg:w-64 object-contain rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105"
+                            />
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+
                   </div>
-                  <p className="text-on-surface text-body-md">Real-time MQTT state synchronization</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full  flex items-center justify-center text-secondary">
-                    <span className="w-3 h-3 rounded-full bg-secondary"></span>
-                  </div>
-                  <p className="text-on-surface text-body-md">Custom Skia-based animation engine</p>
-                </div>
-              </div>
-              <button className="btn-gradient px-8 py-3 rounded-xl font-bold text-white mt-4">
-                Read Tech Spec
-              </button>
-            </div>
-          </div>
-        </div>
+              </SwiperSlide>
+            ))
+          }
+        </Swiper>
       </div>
     </section>
   );

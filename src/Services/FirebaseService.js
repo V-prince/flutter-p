@@ -27,3 +27,13 @@ export const fetchExpertise = async () => {
 
   return data;
 }
+
+export const fetchProjects = async () => {
+  const querySnap = await getDocs(collection(db, "works"))
+  const data = querySnap.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data()
+  }))
+
+  return data;
+}
