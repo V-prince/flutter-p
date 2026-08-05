@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination ,Autoplay } from "swiper/modules";
 import "swiper/css";
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -9,11 +9,12 @@ import { fetchProjects } from '../Services/FirebaseService';
 
 
 
+
 const Projects = () => {
 
 
   const [projects, SetProject] = useState([]);
-  
+
 
   const projectDataFetch = async () => {
     const data = await fetchProjects()
@@ -41,16 +42,17 @@ const Projects = () => {
           pagination={{
             type: 'fraction',
           }}
-          modules={[Pagination]}
-          spaceBetween={30}
+          modules={[Pagination, Navigation]}
+          navigation={true}
           slidesPerView={1}
-          className="w-full"
+          spaceBetween={30}
+          className="w-full relative"
         >
           {
             projects.map((project) => (
-              <SwiperSlide>
+              <SwiperSlide key={project.id}>
 
-                <div key={project.id} className="glass-card rounded-3xl  group">
+                <div  className="glass-card rounded-3xl  group">
                   <div className="grid grid-cols-1 lg:grid-cols-2">
 
 
@@ -93,12 +95,15 @@ const Projects = () => {
 
                     <div className="bg-zinc-900 rounded-3xl md:rounded-none lg:rounded-r-3xl p-6 sm:p-10">
                       <Swiper
-                        modules={[Navigation]}
-                        navigation
+                        modules={[ Autoplay]}
                         slidesPerView={1}
                         spaceBetween={10}
                         className="h-[350px] sm:h-[350px] md:h-[500px]"
                         loop={true}
+                        autoplay={{
+                          delay: 1000,
+                          disableOnInteraction: false,
+                        }}
 
                       >
                         {project.appImages.map((img, index) => (

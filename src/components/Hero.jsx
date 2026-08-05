@@ -15,12 +15,10 @@ const Hero = () => {
   const resumeDownloadLink = resume?.resumeLink
     ? resume.resumeLink.replace("/edit?usp=sharing", "/export?format=pdf")
     : "";
-
+ 
   useEffect(() => {
     FetchResume()
   }, [])
-
-
 
 
   return (
