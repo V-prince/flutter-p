@@ -80,7 +80,6 @@ const Projects = () => {
                             {project.appDescription}
                           </p>
 
-
                           <div className="flex flex-wrap gap-2 mt-5">
                             {project?.technologies?.map((tech) => (
                               <span key={tech} className="px-3 py-1 bg-white/5 rounded-lg font-label-caps text-label-caps text-on-surface-variant">{tech}</span>
@@ -89,11 +88,11 @@ const Projects = () => {
 
                           <div className='flex gap-x-5'>
 
-                            <button className="mt-8 w-fit px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition">
+                            <button className="mt-8 w-fit px-6 py-3 rounded-xl btn-gradient text-white font-semibold transition">
                               <a href={project.androidAppLink} target='_blank'> Android</a>
                             </button>
 
-                            {project.iosAppLink && <button className="mt-8 w-fit px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition">
+                            {project.iosAppLink && <button className="mt-8 w-fit px-6 py-3 rounded-xl btn-gradient  text-white font-semibold transition">
                               <a href={project.iosAppLink} target='_blank'>ios</a>
                             </button>}
 
